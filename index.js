@@ -1,6 +1,22 @@
-function postComment() {
-  var commenter = document.getElementById("commenterName").value;
-  var comment = document.getElementById("commentText").value;
-  //insert comment into "comments" div in this format:
-  //<div class="comment"><p>comment</p><p>Posted By: <span class="commenter">commenter</span></p></div>
+function createPost(){
+  const postTitle  = document.getElementById("postTitle").value;
+  const postBody  = document.getElementById("postBody").value;
+  const postAuthor = document.getElementById("postAuthor").value;
+  const postTemplate = _.template(document.getElementById("post-template").innerHTML);
+  const pageTemplate = _.template(document.getElementById("page-template").innerHTML);
+  const commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
+  const postHTML = postTemplate({'postTitle': postTitle, 'postBody': postBody, 'postAuthor': postAuthor});
+
+
+  document.getElementById('posts').innerHTML += pageTemplate();
+  document.getElementById('post').innerHTML += postHTML + commentsTemplate();
+}
+
+function postComment(){
+  const commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
+  const commentBody = document.getElementById("commentBody").value;
+  const commentAuthor = document.getElementById("commentAuthor").value;
+  const commentHTML = commentTemplate({'commentBody': commentBody, 'commentAuthor': commentAuthor});
+
+  document.getElementById('comments').innerHTML += commentHTML;
 }
