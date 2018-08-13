@@ -5,9 +5,22 @@
   </head>
   <body>
     <main>
+      <form onsubmit = "postComment(); return false;">
+        Title: <input type="text" id="postTitle"><br>
+        Body:  <input type="text" id="postBody"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        <input type="submit">
+      </form>
+      
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    
+    <script id="page-template" type="text/html">
+      
+      
+    </script>
+    
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
